@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="السيرة الذاتية والملف الشخصي الاحترافي">
+  <title> عذراء وسام | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- شاشة التحميل الفاخرة مع انيميشن الظهور -->
+  <div id="loader" class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__rose" aria-hidden="true"></div>
+      <div class="loader__ring"></div>
+      <div class="loader__ring loader__ring--delay"></div>
+      <p class="loader__text">جاري التحميل</p>
+      <div class="loader__bar"><span class="loader__bar-fill"></span></div>
+    </div>
+  </div>
+
+  <!-- المؤشر المخصص للفأرة -->
+  <div class="cursor cursor--dot" aria-hidden="true"></div>
+  <div class="cursor cursor--ring" aria-hidden="true"></div>
+
+  <!-- طبقات الخلفية السينمائية: جسيمات، توهج، ورود -->
+  <canvas id="particles-canvas" class="bg-layer" aria-hidden="true"></canvas>
+  <div id="glow-orbs" class="glow-orbs" aria-hidden="true"></div>
+  <div id="roses-layer" class="roses-layer" aria-hidden="true"></div>
+  <div id="flowers-layer" class="flowers-layer" aria-hidden="true"></div>
+
+  <!-- شريط التنقل الثابت -->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="nav__logo">
+        <span class="nav__logo-icon">✦</span>
+        <span class="nav__logo-text">Portfolio</span>
+      </a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="فتح القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__menu" id="nav-menu">
+        <li><a href="#home" class="nav__link active">الرئيسية</a></li>
+        <li><a href="#about" class="nav__link">من أنا</a></li>
+        <li><a href="#skills" class="nav__link">المهارات</a></li>
+        <li><a href="#education" class="nav__link">التعليم</a></li>
+        <li><a href="#experience" class="nav__link">الخبرات</a></li>
+        <li><a href="#certificates" class="nav__link">الشهادات</a></li>
+        <li><a href="#contact" class="nav__link">تواصل</a></li>
+      </ul>
+      <button class="theme-toggle" id="theme-toggle" aria-label="تبديل الوضع الفاتح/الداكن">
+        <span class="theme-toggle__icon theme-toggle__icon--sun">☀</span>
+        <span class="theme-toggle__icon theme-toggle__icon--moon">☽</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- القسم الرئيسي: الاسم، المسمى، الكتابة الآلية، أزرار التواصل -->
+    <section class="hero section" id="home">
+      <div class="hero__content container reveal">
+        <p class="hero__greeting">مرحباً، أنا</p>
+        <h1 class="hero__name">
+          <span class="hero__name-line">عذراء </span>
+          <span class="hero__name-line hero__name-line--accent">وسام</span>
+        </h1>
+        <p class="hero__title">
+          <span id="typing-text" class="hero__typing"></span>
+          <span class="hero__cursor"></span></span>
+        </p>
+        <p class="hero__bio">
+        
+        </p>
+        <div class="hero__actions">
+          
+          <a href="#about" class="btn btn--outline">اكتشف المزيد</a>
+        </div>
+        <div class="hero__social">
+          
+        </div>
+      </div>
+      <div class="hero__scroll-hint" aria-hidden="true">
+        <span>مرر للأسفل</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- قسم من أنا: نبذة، طموحات، خبرات -->
+    <section class="section about" id="about">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__tag">01</span>
+          <h2 class="section__title">من <span class="text-gradient">أنا</span></h2>
+          <div class="section__line"></div>
+        </header>
+        <div class="about__grid">
+          <article class="glass-card reveal reveal--delay-1">
+            <div class="glass-card__icon">◈</div>
+            <h3 class="glass-card__title">نبذة تعريفية</h3>
+            <p class="glass-card__text">
+             طالبة مهتمة بمجال أمن الشبكات والتقنية، أسعى لتطوير مهاراتي وبناء مستقبل مهني قوي في مجال الـ Cyber Security.
+            </p>
+          </article>
+          <article class="glass-card reveal reveal--delay-2">
+            <div class="glass-card__icon">✧</div>
+            <h3 class="glass-card__title">طموحاتي</h3>
+            <p class="glass-card__text">
+              أطمح أن أصبح مختصة في أمن المعلومات وأحقق نجاح واستقرار وظيفي بمجال التكنولوجيا.
+            </p>
+          </article>
+          <article class="glass-card reveal reveal--delay-3">
+            <div class="glass-card__icon">❋</div>
+            <h3 class="glass-card__title">خبراتي</h3>
+            <p class="glass-card__text">
+لدي معرفة أساسية بالشبكات وأمنها، وأسعى لتطوير نفسي من خلال الدورات والتطبيق العملي.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم المهارات: 4 بطاقات فاخرة بدون أشرطة تقدم -->
+    <section class="section skills" id="skills">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__tag">02</span>
+          <h2 class="section__title">المهارات <span class="text-gradient">الأساسية</span></h2>
+          <div class="section__line"></div>
+        </header>
+        <div class="skills__grid">
+          <article class="skill-card reveal">
+            <div class="skill-card__glow"></div>
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 48 L32 8 L56 48 Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3 class="skill-card__title">تطوير الواجهات</h3>
+            <p class="skill-card__desc">HTML, CSS, JavaScript,SQL وتجارب مستخدم سينمائية</p>
+          </article>
+          <article class="skill-card reveal reveal--delay-1">
+            <div class="skill-card__glow"></div>
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3 class="skill-card__title">تصميم UX/UI</h3>
+            <p class="skill-card__desc">هويات بصرية فاخرة وتجربة مستخدم متقنة</p>
+          </article>
+          <article class="skill-card reveal reveal--delay-2">
+            <div class="skill-card__glow"></div>
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><rect x="12" y="12" width="40" height="40" rx="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3 class="skill-card__title">إدارة المشاريع</h3>
+            <p class="skill-card__desc">تخطيط، تنفيذ، ومتابعة الجودة بكفاءة</p>
+          </article>
+          <article class="skill-card reveal reveal--delay-3">
+            <div class="skill-card__glow"></div>
+            <div class="skill-card__icon">
+              <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 32 Q32 8 48 32 Q32 56 16 32" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            </div>
+            <h3 class="skill-card__title">التواصل والقيادة</h3>
+            <p class="skill-card__desc">تنسيق الفرق وبناء علاقات مهنية قوية</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم التعليم: الجامعة والقسم فقط -->
+    <section class="section education" id="education">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__tag"></span>
+          <h2 class="section__title">التعليم <span class="text-gradient">الأكاديمي</span></h2>
+          <div class="section__line"></div>
+        </header>
+        <article class="education__card glass-card reveal">
+          <div class="education__emblem" aria-hidden="true">🎓</div>
+          <h3 class="education__university"> اعدادية حاسوب مهني</h3>
+          <p class="education__department  /p>
+          <div class="education__shine"></div>
+        </article>
+      </div>
+    </section>
+
+    
+
+    <!-- قسم الشهادات والدورات -->
+    <section class="section certificates" id="certificates">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__tag"></span>
+          <h2 class="section__title">الشهادات <span class="text-gradient">والدورات</span></h2>
+          <div class="section__line"></div>
+        </header>
+        <div class="certificates__grid">
+          <article class="cert-card reveal">
+            <span class="cert-card__badge">شهادة</span>
+            <h3 class="cert-card__title">cs50x</h3>
+            <p class="cert-card__issuer">Harvard University - CS50</p>
+            <!-- صورة الشهادة الأولى بشكل محلي داخل المشروع -->
+            <img
+              src="assets/cs50x-certificate.png"
+              alt="شهادة cs50x"
+              class="cert-card__image"
+              loading="lazy"
+            >
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم التواصل: نموذج ومعلومات الاتصال -->
+    
+          <div class="contact__info reveal reveal--delay-1">
+            <article class="contact__item glass-card">
+              <span class="contact__icon">✉</span>
+              <div>
+                <h4>البريد الإلكتروني</h4>
+                <a href="mailto:your@email.com">yamwr814@gmail.com</a>
+              </div>
+            </article>
+            <article class="contact__item glass-card">
+              <span class="contact__icon">☎</span>
+              <div>
+                <h4>رقم الهاتف</h4>
+                <a href="tel:+964 7711632630">+964 7711632630</a>
+              </div>
+            </article>
+            <article class="contact__item glass-card">
+              <span class="contact__icon">⌖</span>
+              <div>
+                <h4>الموقع</h4>
+                <p> Iraq , Baghdad   </p>
+              </div>
+            </article>
+            <div class="contact__social glass-card">
+              <h4>  </h4>
+              <div class="contact__social-links">
+              
+                 <a href="https://github.com/yamwr814" aria-label="GitHub">GitHub</a>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> الاسم الكامل. جميع الحقوق محفوظة.</p>
+      <a href="#home" class="footer__top">↑ أعلى</a>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
