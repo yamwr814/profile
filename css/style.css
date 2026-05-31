@@ -1157,6 +1157,12 @@ main,
   gap: 1rem;
 }
 
+/* عرض معلومات التواصل فقط بدون نموذج */
+.contact__info--solo {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
 .contact__item {
   display: flex;
   align-items: flex-start;

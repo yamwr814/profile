@@ -45,7 +45,6 @@
         <li><a href="#about" class="nav__link">من أنا</a></li>
         <li><a href="#skills" class="nav__link">المهارات</a></li>
         <li><a href="#education" class="nav__link">التعليم</a></li>
-        <li><a href="#experience" class="nav__link">الخبرات</a></li>
         <li><a href="#certificates" class="nav__link">الشهادات</a></li>
         <li><a href="#contact" class="nav__link">تواصل</a></li>
       </ul>
@@ -58,7 +57,7 @@
 
   <main>
 
-    <!-- القسم الرئيسي: الاسم، المسمى، الكتابة الآلية، أزرار التواصل -->
+    <!-- القسم الرئيسي: الاسم وأزرار التواصل -->
     <section class="hero section" id="home">
       <div class="hero__content container reveal">
         <p class="hero__greeting">مرحباً، أنا</p>
@@ -66,20 +65,11 @@
           <span class="hero__name-line">عذراء </span>
           <span class="hero__name-line hero__name-line--accent">وسام</span>
         </h1>
-        <p class="hero__title">
-          <span id="typing-text" class="hero__typing"></span>
-          <span class="hero__cursor"></span></span>
-        </p>
-        <p class="hero__bio">
-        
-        </p>
+        <p class="hero__bio"></p>
         <div class="hero__actions">
-          
           <a href="#about" class="btn btn--outline">اكتشف المزيد</a>
         </div>
-        <div class="hero__social">
-          
-        </div>
+        <div class="hero__social"></div>
       </div>
       <div class="hero__scroll-hint" aria-hidden="true">
         <span>مرر للأسفل</span>
@@ -100,7 +90,7 @@
             <div class="glass-card__icon">◈</div>
             <h3 class="glass-card__title">نبذة تعريفية</h3>
             <p class="glass-card__text">
-             طالبة مهتمة بمجال أمن الشبكات والتقنية، أسعى لتطوير مهاراتي وبناء مستقبل مهني قوي في مجال الـ Cyber Security.
+              طالبة مهتمة بمجال أمن الشبكات والتقنية، أسعى لتطوير مهاراتي وبناء مستقبل مهني قوي في مجال الـ Cyber Security.
             </p>
           </article>
           <article class="glass-card reveal reveal--delay-2">
@@ -114,7 +104,7 @@
             <div class="glass-card__icon">❋</div>
             <h3 class="glass-card__title">خبراتي</h3>
             <p class="glass-card__text">
-لدي معرفة أساسية بالشبكات وأمنها، وأسعى لتطوير نفسي من خلال الدورات والتطبيق العملي.
+              لدي معرفة أساسية بالشبكات وأمنها، وأسعى لتطوير نفسي من خلال الدورات والتطبيق العملي.
             </p>
           </article>
         </div>
@@ -136,7 +126,7 @@
               <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 48 L32 8 L56 48 Z" fill="none" stroke="currentColor" stroke-width="2"/></svg>
             </div>
             <h3 class="skill-card__title">تطوير الواجهات</h3>
-            <p class="skill-card__desc">HTML, CSS, JavaScript,SQL وتجارب مستخدم سينمائية</p>
+            <p class="skill-card__desc">HTML, CSS, JavaScript, SQL وتجارب مستخدم سينمائية</p>
           </article>
           <article class="skill-card reveal reveal--delay-1">
             <div class="skill-card__glow"></div>
@@ -176,14 +166,11 @@
         </header>
         <article class="education__card glass-card reveal">
           <div class="education__emblem" aria-hidden="true">🎓</div>
-          <h3 class="education__university"> اعدادية حاسوب مهني</h3>
-          <p class="education__department  /p>
+          <h3 class="education__university">اعدادية حاسوب مهني</h3>
           <div class="education__shine"></div>
         </article>
       </div>
     </section>
-
-    
 
     <!-- قسم الشهادات والدورات -->
     <section class="section certificates" id="certificates">
@@ -210,37 +197,39 @@
       </div>
     </section>
 
-    <!-- قسم التواصل: نموذج ومعلومات الاتصال -->
-    
-          <div class="contact__info reveal reveal--delay-1">
-            <article class="contact__item glass-card">
-              <span class="contact__icon">✉</span>
-              <div>
-                <h4>البريد الإلكتروني</h4>
-                <a href="mailto:your@email.com">yamwr814@gmail.com</a>
-              </div>
-            </article>
-            <article class="contact__item glass-card">
-              <span class="contact__icon">☎</span>
-              <div>
-                <h4>رقم الهاتف</h4>
-                <a href="tel:+964 7711632630">+964 7711632630</a>
-              </div>
-            </article>
-            <article class="contact__item glass-card">
-              <span class="contact__icon">⌖</span>
-              <div>
-                <h4>الموقع</h4>
-                <p> Iraq , Baghdad   </p>
-              </div>
-            </article>
-            <div class="contact__social glass-card">
-              <h4>  </h4>
-              <div class="contact__social-links">
-              
-                 <a href="https://github.com/yamwr814" aria-label="GitHub">GitHub</a>
-                
-              </div>
+    <!-- قسم التواصل: معلومات الاتصال -->
+    <section class="section contact" id="contact">
+      <div class="container">
+        <header class="section__header reveal">
+          <span class="section__tag"></span>
+          <h2 class="section__title">تواصل <span class="text-gradient">معي</span></h2>
+          <div class="section__line"></div>
+        </header>
+        <div class="contact__info contact__info--solo reveal">
+          <article class="contact__item glass-card">
+            <span class="contact__icon">✉</span>
+            <div>
+              <h4>البريد الإلكتروني</h4>
+              <a href="mailto:yamwr814@gmail.com">yamwr814@gmail.com</a>
+            </div>
+          </article>
+          <article class="contact__item glass-card">
+            <span class="contact__icon">☎</span>
+            <div>
+              <h4>رقم الهاتف</h4>
+              <a href="tel:+9647711632630">+964 7711632630</a>
+            </div>
+          </article>
+          <article class="contact__item glass-card">
+            <span class="contact__icon">⌖</span>
+            <div>
+              <h4>الموقع</h4>
+              <p>Iraq, Baghdad</p>
+            </div>
+          </article>
+          <div class="contact__social glass-card">
+            <div class="contact__social-links">
+              <a href="https://github.com/yamwr814" aria-label="GitHub">GitHub</a>
             </div>
           </div>
         </div>
@@ -251,7 +240,7 @@
 
   <footer class="footer">
     <div class="container footer__inner">
-      <p>© <span id="year"></span> الاسم الكامل. جميع الحقوق محفوظة.</p>
+      <p>© <span id="year"></span> عذراء وسام. جميع الحقوق محفوظة.</p>
       <a href="#home" class="footer__top">↑ أعلى</a>
     </div>
   </footer>

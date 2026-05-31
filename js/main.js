@@ -10,15 +10,6 @@
 
   /* ——— إعدادات قابلة للتعديل بسهولة ——— */
   const CONFIG = {
-    typingPhrases: [
-      "مطور واجهات أمامية",
-      "مصمم تجارب مستخدم",
-      "محترف إبداعي",
-      "باني هويات رقمية فاخرة",
-    ],
-    typingSpeed: 80,
-    typingDeleteSpeed: 45,
-    typingPause: 2000,
     loaderMinTime: 2200,
     particleCount: 60,
     roseCount: 12,
@@ -266,45 +257,6 @@
   }
 
   /* ============================================
-     انيميشن الكتابة الآلية Typing Effect
-     ============================================ */
-  function initTyping() {
-    const el = document.getElementById("typing-text");
-    if (!el) return;
-
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-
-    function type() {
-      const current = CONFIG.typingPhrases[phraseIndex];
-
-      if (isDeleting) {
-        el.textContent = current.substring(0, charIndex - 1);
-        charIndex--;
-      } else {
-        el.textContent = current.substring(0, charIndex + 1);
-        charIndex++;
-      }
-
-      let delay = isDeleting ? CONFIG.typingDeleteSpeed : CONFIG.typingSpeed;
-
-      if (!isDeleting && charIndex === current.length) {
-        delay = CONFIG.typingPause;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        phraseIndex = (phraseIndex + 1) % CONFIG.typingPhrases.length;
-        delay = 400;
-      }
-
-      setTimeout(type, delay);
-    }
-
-    type();
-  }
-
-  /* ============================================
      ظهور العناصر عند التمرير Scroll Reveal
      ============================================ */
   function initScrollReveal() {
@@ -504,7 +456,6 @@
     initGlowOrbs();
     initParticles();
     initFloatingElements();
-    initTyping();
     initScrollReveal();
     initParallax();
     initNavbar();
