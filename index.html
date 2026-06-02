@@ -46,6 +46,7 @@
         <li><a href="#skills" class="nav__link">المهارات</a></li>
         <li><a href="#education" class="nav__link">التعليم</a></li>
         <li><a href="#certificates" class="nav__link">الشهادات</a></li>
+        <li><a href="#projects" class="nav__link">المشاريع</a></li>
         <li><a href="#contact" class="nav__link">تواصل</a></li>
       </ul>
       <button class="theme-toggle" id="theme-toggle" aria-label="تبديل الوضع الفاتح/الداكن">
@@ -193,6 +194,123 @@
               loading="lazy"
             >
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         قسم المشاريع — يعرض التطبيقات والأنظمة المنجزة
+         يظهر أسفل الشهادات مباشرة
+         ============================================ -->
+    <section class="section projects" id="projects">
+      <div class="container">
+
+        <!-- رأس القسم: العنوان والخط الزخرفي مع تأثير الظهور التدريجي -->
+        <header class="section__header reveal">
+          <span class="section__tag">05</span>
+          <h2 class="section__title">المشاريع <span class="text-gradient">المنجزة</span></h2>
+          <div class="section__line"></div>
+        </header>
+
+        <!-- شبكة المشاريع — يمكن إضافة بطاقات أخرى لاحقاً بنفس الهيكل -->
+        <div class="projects__grid">
+
+          <!-- بطاقة مشروع نظام المبيعات والمحاسبة -->
+          <article class="project-card reveal reveal--delay-1" data-project-card>
+
+            <!-- حاوية الصورة المصغرة مع تأثير التكبير عند المرور -->
+            <div class="project-card__media">
+              <img
+                src="assets/sales-accounting-system.png"
+                alt="واجهة تسجيل الدخول — نظام إدارة المبيعات والمحاسبة"
+                class="project-card__thumb"
+                loading="lazy"
+                width="640"
+                height="360"
+              >
+              <!-- طبقة توهج شفافة فوق الصورة لإبراز المظهر الاحترافي -->
+              <div class="project-card__media-glow" aria-hidden="true"></div>
+              <!-- شارة صغيرة تدل على أن المشروع تطبيق ويب حي -->
+              <span class="project-card__badge">تطبيق ويب</span>
+            </div>
+
+            <!-- محتوى البطاقة: العنوان، الوصف، الحسابات، والزر -->
+            <div class="project-card__body">
+
+              <!-- عنوان المشروع الرئيسي -->
+              <h3 class="project-card__title">نظام إدارة المبيعات والمحاسبة</h3>
+
+              <!-- وصف مختصر يشرح وظيفة النظام -->
+              <p class="project-card__desc">
+                نظام متكامل لإدارة المبيعات والمحاسبة والمخزون، يتيح للمدير والمحاسب والكاشير وموظف المخزن إدارة العمليات اليومية بسهولة من خلال لوحة تحكم حديثة وواجهة استخدام احترافية.
+              </p>
+
+              <!-- قسم حسابات التجربة — بيانات الدخول لكل دور مستخدم -->
+              <div class="project-card__trials">
+                <h4 class="project-card__trials-title">
+                  <span class="project-card__trials-icon" aria-hidden="true">🔐</span>
+                  حسابات التجربة
+                </h4>
+
+                <!-- قائمة الحسابات — شبكة متجاوبة (2×2 على الحاسوب، عمود واحد على الهاتف) -->
+                <ul class="project-card__accounts" role="list">
+
+                  <!-- حساب المدير -->
+                  <li class="project-card__account">
+                    <span class="project-card__role-icon" aria-hidden="true">👑</span>
+                    <div class="project-card__account-info">
+                      <span class="project-card__role">المدير</span>
+                      <code class="project-card__creds">admin / admin123</code>
+                    </div>
+                  </li>
+
+                  <!-- حساب المحاسب -->
+                  <li class="project-card__account">
+                    <span class="project-card__role-icon" aria-hidden="true">💰</span>
+                    <div class="project-card__account-info">
+                      <span class="project-card__role">المحاسب</span>
+                      <code class="project-card__creds">accountant / acc123</code>
+                    </div>
+                  </li>
+
+                  <!-- حساب الكاشير -->
+                  <li class="project-card__account">
+                    <span class="project-card__role-icon" aria-hidden="true">🧾</span>
+                    <div class="project-card__account-info">
+                      <span class="project-card__role">الكاشير</span>
+                      <code class="project-card__creds">cashier / cash123</code>
+                    </div>
+                  </li>
+
+                  <!-- حساب المخزن -->
+                  <li class="project-card__account">
+                    <span class="project-card__role-icon" aria-hidden="true">📦</span>
+                    <div class="project-card__account-info">
+                      <span class="project-card__role">المخزن</span>
+                      <code class="project-card__creds">stock / stock123</code>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+
+              <!-- زر تجربة النظام — يفتح الرابط في تبويب جديد -->
+              <a
+                href="https://system-production-b346.up.railway.app"
+                class="btn btn--primary project-card__cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="project-card__cta-text">تجربة النظام</span>
+                <span class="project-card__cta-arrow" aria-hidden="true">←</span>
+                <!-- طبقة توهج متحركة داخل الزر -->
+                <span class="btn__glow" aria-hidden="true"></span>
+                <span class="project-card__cta-glow" aria-hidden="true"></span>
+              </a>
+
+            </div>
+          </article>
+
         </div>
       </div>
     </section>

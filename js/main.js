@@ -76,7 +76,7 @@
     animateRing();
 
     const hoverTargets = document.querySelectorAll(
-      "a, button, .skill-card, .cert-card, .glass-card, input, textarea"
+      "a, button, .skill-card, .cert-card, .project-card, .glass-card, input, textarea"
     );
     hoverTargets.forEach(function (el) {
       el.addEventListener("mouseenter", function () {
@@ -254,6 +254,50 @@
 
     spawn(rosesLayer, "floating-rose", roseSVG, CONFIG.roseCount);
     spawn(flowersLayer, "floating-flower", flowerSVG, CONFIG.flowerCount);
+  }
+
+  /* ============================================
+     قسم المشاريع — تأثير Fade Up وتفاعل البطاقة
+     يعمل مع IntersectionObserver لظهور سلس عند التمرير
+     ============================================ */
+  function initProjectsSection() {
+    const projectCards = document.querySelectorAll("[data-project-card]");
+    if (!projectCards.length) return;
+
+    /* مراقبة ظهور البطاقة في الشاشة لتفعيل الأنيميشن */
+    const cardObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("project-card--in-view");
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -30px 0px" }
+    );
+
+    projectCards.forEach(function (card) {
+      cardObserver.observe(card);
+
+      /* تأثير ميلان خفيف ثلاثي الأبعاد عند تحريك الفأرة (حاسوب فقط) */
+      if (window.matchMedia("(min-width: 769px) and (hover: hover)").matches) {
+        card.addEventListener("mousemove", function (e) {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform =
+            "translateY(-10px) perspective(800px) rotateX(" +
+            y * -4 +
+            "deg) rotateY(" +
+            x * 4 +
+            "deg)";
+        });
+
+        card.addEventListener("mouseleave", function () {
+          card.style.removeProperty("transform");
+        });
+      }
+    });
   }
 
   /* ============================================
@@ -457,6 +501,7 @@
     initParticles();
     initFloatingElements();
     initScrollReveal();
+    initProjectsSection();
     initParallax();
     initNavbar();
     initThemeToggle();

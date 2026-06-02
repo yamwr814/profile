@@ -1094,6 +1094,317 @@ main,
 }
 
 /* ============================================
+   قسم المشاريع — بطاقة المشروع والتأثيرات
+   يمكن تعديل الألوان من المتغيرات في :root أعلاه
+   ============================================ */
+
+/* شبكة المشاريع — عمود واحد مركزي لبطاقة كبيرة احترافية */
+.projects__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+/* البطاقة الرئيسية — زجاجية مع حدود وتوهج عند المرور */
+.project-card {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 22px;
+  overflow: hidden;
+  transition:
+    transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.5s ease,
+    border-color 0.4s ease;
+  will-change: transform;
+}
+
+/* خط متوهج سفلي يظهر عند تمرير الفأرة */
+.project-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--maroon-neon), var(--rose-petal));
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+/* تأثير Hover للبطاقة — رفع خفيف وتوهج */
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(196, 90, 122, 0.4);
+  box-shadow:
+    var(--shadow-glow),
+    0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.project-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* حاوية الصورة المصغرة */
+.project-card__media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--maroon-dark);
+}
+
+/* الصورة — تكبير Zoom خفيف عند المرور على البطاقة */
+.project-card__thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover .project-card__thumb {
+  transform: scale(1.05);
+}
+
+/* طبقة تدرج فوق الصورة لدمجها مع ألوان الموقع */
+.project-card__media-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(26, 10, 14, 0.75) 100%
+  );
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.project-card:hover .project-card__media-glow {
+  opacity: 0.85;
+}
+
+/* شارة نوع المشروع */
+.project-card__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  background: rgba(196, 90, 122, 0.25);
+  color: var(--maroon-neon);
+  border: 1px solid rgba(196, 90, 122, 0.45);
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.02em;
+}
+
+/* جسم البطاقة — النصوص والحسابات والزر */
+.project-card__body {
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+.project-card__title {
+  font-size: clamp(1.15rem, 3vw, 1.45rem);
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+  background: linear-gradient(135deg, var(--white) 0%, var(--maroon-neon) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-card__desc {
+  font-size: clamp(0.88rem, 2.5vw, 0.95rem);
+  color: var(--white-muted);
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+/* قسم حسابات التجربة */
+.project-card__trials {
+  margin-bottom: 1.75rem;
+  padding: 1.15rem 1.25rem;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.18);
+  border: 1px solid var(--glass-border);
+}
+
+[data-theme="light"] .project-card__trials {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.project-card__trials-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--white-soft);
+  font-weight: 600;
+}
+
+.project-card__trials-icon {
+  font-size: 1rem;
+}
+
+/* شبكة الحسابات — 2×2 على الشاشات المتوسطة والكبيرة */
+.project-card__accounts {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+/* صف حساب واحد */
+.project-card__account {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 12px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition:
+    border-color var(--transition-smooth),
+    transform var(--transition-smooth),
+    box-shadow var(--transition-smooth);
+}
+
+.project-card__account:hover {
+  border-color: rgba(196, 90, 122, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(196, 90, 122, 0.15);
+}
+
+.project-card__role-icon {
+  font-size: 1.35rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.project-card__account-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.project-card__role {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--maroon-neon);
+}
+
+.project-card__creds {
+  font-family: "Consolas", "Monaco", "Courier New", monospace;
+  font-size: 0.78rem;
+  color: var(--white-muted);
+  word-break: break-all;
+  direction: ltr;
+  text-align: right;
+}
+
+/* زر تجربة النظام — عرض كامل مع توهج متحرك */
+.project-card__cta {
+  position: relative;
+  width: 100%;
+  gap: 0.5rem;
+  overflow: hidden;
+  animation: project-cta-glow 2.8s ease-in-out infinite;
+}
+
+.project-card__cta-text {
+  position: relative;
+  z-index: 1;
+}
+
+.project-card__cta-arrow {
+  position: relative;
+  z-index: 1;
+  font-size: 1.1rem;
+  transition: transform var(--transition-smooth);
+}
+
+.project-card__cta:hover .project-card__cta-arrow {
+  transform: translateX(-4px);
+}
+
+/* طبقة توهج إضافية حول الزر */
+.project-card__cta-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--maroon-neon), var(--rose-petal));
+  opacity: 0;
+  z-index: 0;
+  filter: blur(12px);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.project-card__cta:hover .project-card__cta-glow {
+  opacity: 0.55;
+}
+
+/* حركة توهج الزر — Glow Effect */
+@keyframes project-cta-glow {
+  0%, 100% {
+    box-shadow:
+      0 4px 25px rgba(196, 90, 122, 0.4),
+      0 0 0 0 rgba(196, 90, 122, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 6px 32px rgba(196, 90, 122, 0.55),
+      0 0 28px rgba(212, 120, 154, 0.35);
+  }
+}
+
+/* Fade Up عند الظهور — يُفعَّل عبر class "reveal" الموجودة في main.js */
+
+/* ——— استجابة قسم المشاريع: تابلت ——— */
+@media (max-width: 768px) {
+  .projects__grid {
+    max-width: 100%;
+  }
+
+  .project-card__accounts {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+  }
+}
+
+/* ——— استجابة قسم المشاريع: هاتف ——— */
+@media (max-width: 480px) {
+  .project-card__body {
+    padding: 1.15rem;
+  }
+
+  .project-card__trials {
+    padding: 1rem;
+  }
+
+  .project-card__account {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .project-card__creds {
+    font-size: 0.72rem;
+  }
+}
+
+/* ============================================
    قسم التواصل
    ============================================ */
 .contact__grid {
